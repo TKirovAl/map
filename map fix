@@ -46,11 +46,12 @@ string arabicToRoman(int arabic)
     
     string result;
     
-    for (auto it = romanMap.rend(); it != romanMap.rbegin(); --it) {
+    for (auto it = --romanMap.rend(); it != --romanMap.rbegin(); --it) {
         int currentValue = it->first;
-        string numeral = it->second;
+        string numeral;
+        numeral = it->second;
         
-        while(arabic > 0){
+        while(arabic > currentValue){
             if(arabic - currentValue > 0){
                 arabic -= currentValue;
                 result += numeral;
